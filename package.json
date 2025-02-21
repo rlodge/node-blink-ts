@@ -1,6 +1,6 @@
 {
   "name": "blink-ts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,8 +11,21 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "blink",
+    "camera",
+    "security",
+    "system"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rlodge/node-blink-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rlodge/node-blink-ts/issues"
+  },
+  "homepage": "hhttps://github.com/rlodge/node-blink-ts#readme",
+  "author": "ross.lodge@electronicmuse.com",
   "license": "MIT",
   "devDependencies": {
     "ts-node": "^10.9.2",
