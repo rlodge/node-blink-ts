@@ -1,0 +1,5 @@
+dist/
+node_modules/
+blink-ts*.tgz
+.idea/
+justRunIt.ts
