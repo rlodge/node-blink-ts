@@ -8,7 +8,8 @@
     "/dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "npm run clean && tsc",
+    "clean": "npx rimraf dist && npx rimraf blink-ts-*.tgz",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
