@@ -20,7 +20,6 @@ class Constants {
 }
 
 export interface Options {
-    verificationTimeout?: number;
     deviceName?: string;
     urls?: BlinkURLHandler;
     httpExecutor?: HttpExecutor;
@@ -32,7 +31,7 @@ export interface HttpExecutor {
     post<T>(url: string, headers: { [key: string]: string }, body?: any): Promise<T>
 }
 
-class BlinkURLHandler {
+export class BlinkURLHandler {
 
     baseUrl: string;
     homeUrl: string;
@@ -41,7 +40,7 @@ class BlinkURLHandler {
     constructor(private accountId: number, private accountTier: string, private clientId: number) {
         this.baseUrl = 'https://rest-' + accountTier + '.' + Constants.BLINK_URL;
         this.homeUrl = `${this.baseUrl}/api/v3/accounts/${accountId}/homescreen`;
-        this.verifyUrl = `https://rest-prod.${Constants.BLINK_URL}/api/v4/account/${this.accountId}/client/${clientId}/pin/verify`
+        this.verifyUrl = `${this.baseUrl}/api/v4/account/${this.accountId}/client/${clientId}/pin/verify`
     }
 
     public armUrl(networkId: number): string {
@@ -55,14 +54,12 @@ class BlinkURLHandler {
 
 export class Blink {
 
-    verificationTimeout: number;
     deviceName: string;
     urls?: BlinkURLHandler;
     httpExecutor: HttpExecutor;
     token?: string;
 
     constructor(private username: string, private password: string, private device_id: string, options: Options = {}) {
-        this.verificationTimeout = options.verificationTimeout || 1e3 * 60;
         this.deviceName = options.deviceName || "node-blink-ts";
         this.urls = options.urls;
         this.httpExecutor = options.httpExecutor || {
