@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "npm run clean && tsc",
-    "clean": "npx rimraf dist && npx rimraf blink-ts-*.tgz",
+    "clean": "npx --yes rimraf dist && npx --yes rimraf blink-ts-*.tgz",
     "test": "jest"
   },
   "keywords": [
